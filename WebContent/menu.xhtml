@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui">
+ 
+    <h:form>
+    	
+	    <p:menu>
+	        <p:submenu label="Menu">
+	            <p:menuitem value="Home" outcome="index" icon="ui-icon-home" />
+	        </p:submenu>
+	        <p:submenu label="Aluno">
+	            <p:menuitem value="Listar Alunos" outcome="aluno" ajax="false" icon="ui-icon-person"/>
+	        </p:submenu>
+	        <p:submenu label="Professor">
+	            <p:menuitem value="Listar Professores" outcome="professor" ajax="false" icon="ui-icon-person"/>
+	        </p:submenu>
+	        <p:submenu label="Curso">
+	            <p:menuitem value="Listar Cursos" outcome="curso" ajax="false" icon="ui-icon-note"/>
+	        </p:submenu>
+	        <p:submenu label="Disciplina">
+	            <p:menuitem value="Listar Disciplinas" outcome="disciplina" ajax="false" icon="ui-icon-link"/>
+	        </p:submenu>
+	        <p:submenu label="Turma">
+	            <p:menuitem value="Listar Turmas" outcome="turma" ajax="false" icon="ui-icon-script"/>
+	            <p:menuitem value="Matricular Aluno" outcome="matricular-aluno-em-turma" ajax="false" icon="ui-icon-script"/>
+	        </p:submenu>
+	        <p:submenu label="Cofigurações">
+	            <p:menuitem value="Sair" outcome="index" icon="ui-icon-power"/>
+	        </p:submenu>
+	    </p:menu>
+    </h:form>
+ 
+</ui:fragment>

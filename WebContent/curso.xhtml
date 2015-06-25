@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="template.xhtml">
+        <ui:define name="conteudo">
+        
+        <h:panelGrid columns="1" cellpadding="5">
+        	<h:form>
+	    		<p:commandButton value="Cadastrar Curso" type="button" onclick="PF('cursoCadastro').show();" />
+	    	</h:form>
+		</h:panelGrid>
+		
+		<p:growl id="growl" life="2000" />
+				
+		<h:form id="formListar">
+	
+	        <p:panel id="cursoes" header="Lista de cursos" footer="Listagem de cursos" style="margin-bottom:20px">
+		        <h:panelGrid columns="2" cellpadding="10">
+		            
+		            <p:dataTable var="curso" value="#{cursoMB.cursos}">
+					    <p:column headerText="Id">
+					        <h:outputText value="#{curso.id}" />
+					    </p:column>
+					 
+					    <p:column headerText="Nome">
+					        <h:outputText value="#{curso.nome}" />
+					    </p:column>
+					 
+					    <p:column headerText="Ações">
+					        <p:commandLink title="Alterar" update=":formEditar"
+					        		onclick="PF('cursoEdicao').show();" immediate="true">
+                                    Editar
+                                    <f:setPropertyActionListener target="#{cursoMB.curso}"
+                                            value="#{curso}" />
+                            </p:commandLink>
+                            
+					    </p:column>
+		
+					</p:dataTable>
+		        </h:panelGrid>
+		    </p:panel>
+	    </h:form>
+		    
+		    <p:dialog header="Curso Cadastro" widgetVar="cursoCadastro" height="300" width="500">
+			    
+			    	<h:form id="formCadastrar">
+			    		<ui:include src="formularioCurso.xhtml" />
+				    	<p:commandButton value="Salvar" id="ajax" actionListener="#{cursoMB.salvar}" update="growl, :formListar:cursoes" oncomplete="cursoCadastro.hide()" />
+			    	</h:form>
+			    
+			</p:dialog>
+			
+			<p:dialog header="Curso Edição" widgetVar="cursoEdicao" height="300" width="500">
+				<h:form id="formEditar">
+		    		<ui:include src="formularioCurso.xhtml" />
+			    	
+			    	<p:commandButton value="Salvar" id="ajax" actionListener="#{cursoMB.salvar}" update="growl, :formListar:cursoes" oncomplete="cursoEdicao.hide()" />
+	    		</h:form>
+			</p:dialog>
+						
+        </ui:define>
+    </ui:composition>
+</html>
+
