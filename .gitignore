@@ -1,2 +1,9 @@
 .metadata
 *.iml
+/.idea/
+RemoteSystemsTempFiles/
+RemoteSystemsTempFiles/*
+RemoteSystemsTempFiles
+Servers/*
+Servers
+Servers/
