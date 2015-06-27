@@ -13,9 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.estacio.controle.ControleLogin;
+//@WebFilter('')
+import br.com.gestorAcademico.controle.ControleLogin;
 
-@WebFilter(urlPatterns="/privado/*")
+
 public class FiltroSeguranca implements Filter{
 
 	@Override
@@ -32,18 +33,18 @@ public class FiltroSeguranca implements Filter{
 		HttpSession sessao = httpRequest.getSession();
 		String contextPath = httpRequest.getContextPath();
 		ControleLogin controleLogin = (ControleLogin) sessao.getAttribute("controleLogin");
-		if (controleLogin == null || controleLogin.getUsuarioLogado() == null){
-			httpResponse.sendRedirect(contextPath + "/login.xhtml");
-		} else {
-			String pagina = httpRequest.getRequestURL().toString();
-			//System.out.println("Pagina acessada: "+pagina);
-			if (pagina.contains("/privado/funcionario")){
-				if (!controleLogin.getUsuarioLogado().getGrupo().
-						getNome().equals("Administradores")){
-					httpResponse.sendRedirect(contextPath + "/naoAutorizado.xhtml");
-				}
-			}
-		}
+//		if (controleLogin == null || controleLogin.getUsuarioLogado() == null){
+//			httpResponse.sendRedirect(contextPath + "/login.xhtml");
+//		} else {
+//			String pagina = httpRequest.getRequestURL().toString();
+//			//System.out.println("Pagina acessada: "+pagina);
+//			if (pagina.contains("/privado/funcionario")){
+//				if (!controleLogin.getUsuarioLogado().getGrupo().
+//						getNome().equals("Administradores")){
+//					httpResponse.sendRedirect(contextPath + "/naoAutorizado.xhtml");
+//				}
+//			}
+//		}
 		chain.doFilter(request,response);		
 	}
 
