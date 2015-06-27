@@ -1,4 +1,4 @@
-package br.estacio.filtros;
+package br.com.gestorAcademico.filtros;
 
 import java.io.IOException;
 
