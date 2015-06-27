@@ -7,3 +7,7 @@ RemoteSystemsTempFiles
 Servers/*
 Servers
 Servers/
+*.classpath
+/.project
+/bin/
+*.xml

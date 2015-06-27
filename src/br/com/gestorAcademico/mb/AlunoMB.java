@@ -1,5 +1,6 @@
 package br.com.gestorAcademico.mb;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,9 @@ import br.com.gestorAcademico.entity.Aluno;
 
 @ManagedBean
 @ViewScoped
-public class AlunoMB {
+public class AlunoMB implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	private List alunos = new ArrayList<Aluno>();
 	private Aluno aluno;
